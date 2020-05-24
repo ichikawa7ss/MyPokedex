@@ -1,0 +1,46 @@
+name: MyPokedex
+options:
+  deploymentTarget:
+    iOS: 11.0
+fileGroups:
+targets:
+  MyPokedex:
+    type: application
+    platform: iOS
+    sources: [MyPokedex]
+    settings:
+      CURRENT_PROJECT_VERSION: 1
+      PRODUCT_BUNDLE_IDENTIFIER: mypokedex
+      CODE_SIGN_STYLE: Automatic
+    dependencies:
+    - target: DataStore
+    - target: Domain
+    - target: Presentation
+  DataStore:
+    type: framework
+    platform: iOS
+    sources: [DataStore]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: mypokedex.DataStore
+      CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - carthage: Alamofire
+  Presentation:
+    type: framework
+    platform: iOS
+    sources: [Presentation]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: mypokedex.Presentation
+      CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - target: DataStore
+      - target: Domain
+  Domain:
+    type: framework
+    platform: iOS
+    sources: [Domain]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: mypokedex.Domain
+      CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - target: DataStore
