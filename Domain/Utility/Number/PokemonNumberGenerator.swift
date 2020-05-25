@@ -8,7 +8,7 @@
 import Foundation
 
 enum PokemonNumberGenerator {
-    
+
     static func generate(from url: String) -> Int {
         var removePrefix = url.replacingOccurrences(of: "https://pokeapi.co/api/v2/pokemon/", with: "")
         removePrefix.removeLast()

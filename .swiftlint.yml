@@ -1,0 +1,48 @@
+# 無効にするルール。
+disabled_rules:
+  - trailing_whitespace # コードの記載のない改行を許可したい
+  - force_cast # 場合によっては使用するため
+  - colon # コロン位置を揃えたい
+  - comma # カンマ位置を揃えたい
+  - identifier_name # 変数名にアンスコ使いたい
+  - switch_case_on_newline # 一行で書いたほうが簡潔な場合もある
+
+# デフォルト無効のルールのうち、有効にするもの。
+opt_in_rules:
+  - closure_spacing # クロージャのカッコの近くにスペース強制
+  - empty_count # == 0 のかわりにisEmpty
+  - explicit_init # init()使わない
+  - fatal_error_message # メッセージをつける
+  - first_where # .filter { }.firstよりも.first(where:)を用いる
+#  - implicitly_unwrapped_optional # プロパティ宣言時に!使わない
+#  - missing_docs # publicな宣言はドキュメント化されているべき <- Embedded Frameworkによるものが多いのでコメントアウト
+  - object_literal # #imageLiteralや#colorLiteralを用いる
+  - private_outlet # outletはprivateにする
+  - prohibited_super_call # いくつかのメソッドにおいてはsuperを呼び出すべきではない
+  - redundant_nil_coalescing # nil結合演算子において，左辺がnilの場合のみ評価される性質上，右辺にnilを書くのは冗長なため，書くべきでない
+
+# 追加したOSSライブラリは対象に含めたくない
+excluded:
+  - Carthage/
+  - vendor/
+
+# 1行あたりの文字数制限を300に変更
+# プロジェクト作成時にデフォルトで追加されるコメントをひっかけないため
+line_length: 300
+
+# 変数名が１文字以上なら許可に変更
+identifier_name:
+  min_length: 1
+
+# ArrayやDictionary中の末尾の,を強制
+trailing_comma:
+    mandatory_comma: true
+
+# caseが10以上になるのは許容する
+cyclomatic_complexity:
+  ignores_case_statements: true
+
+ # タプルは4つで警告、5つ以上でエラー
+large_tuple:
+   - 4
+   - 5

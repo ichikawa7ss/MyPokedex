@@ -8,7 +8,7 @@
 import Foundation
 
 enum PokemonImageURLGenerator {
-    
+
     static func generate(from id: Int) -> String {
         let formatId = String(format: "%03d", id)
         let imageUrl = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/\(formatId).png"

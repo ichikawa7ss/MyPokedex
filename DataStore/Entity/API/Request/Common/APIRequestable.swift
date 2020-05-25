@@ -8,18 +8,18 @@
 import Foundation
 import Alamofire
 
-protocol APIRequestable: Encodable  {
-    
+protocol APIRequestable: Encodable {
+
     var urlString: String { get }
-    
+
     var method: HTTPMethod { get }
-    
-    var parameters: [String: Any] {get}
+
+    var parameters: [String: Any] { get }
 
 }
 
 extension APIRequestable {
-    
+
     var parameters: [String: Any] {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -28,7 +28,7 @@ extension APIRequestable {
 }
 
 private extension JSONEncoder {
-    
+
     func encodeToDictionary<T: Encodable>(_ value: T) -> [String: Any] {
         do {
             let data = try self.encode(value)

@@ -28,4 +28,3 @@ extension PokemonListViewController {
 // MARK: - PokemonListView
 extension PokemonListViewController: PokemonListView {
 }
-

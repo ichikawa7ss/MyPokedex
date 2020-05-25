@@ -4,18 +4,18 @@
 
 import Foundation
 
-public struct PokemonListResponse : Codable {
+public struct PokemonListResponse: Codable {
 
-    public let count : Int
-    public let next : String?
-    public let previous : String?
-    public let results : [Result]
+    public let count: Int
+    public let next: String?
+    public let previous: String?
+    public let results: [Result]
 
 }
 
 extension PokemonListResponse {
-    public struct Result : Codable {
-        public let name : String
-        public let url : String
+    public struct Result: Codable {
+        public let name: String
+        public let url: String
     }
 }

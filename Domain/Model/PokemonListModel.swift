@@ -33,7 +33,7 @@ extension PokemonListModel {
 }
 
 extension PokemonListModel.Pokemon {
-    
+
     init(_ pokemon: PokemonListResponse.Result) {
         self.name = pokemon.name
         self.number = PokemonNumberGenerator.generate(from: pokemon.url)
