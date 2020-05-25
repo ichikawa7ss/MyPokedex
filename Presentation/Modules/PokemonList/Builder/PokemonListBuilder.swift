@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Domain
 
 public enum PokemonListBuilder {
 
@@ -19,6 +20,7 @@ public enum PokemonListBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
+        presenter.useCase = PokemonListUseCaseProvider.provide()
 
         wireframe.viewController = view
 

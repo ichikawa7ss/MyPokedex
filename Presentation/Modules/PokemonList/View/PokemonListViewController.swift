@@ -21,6 +21,7 @@ extension PokemonListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.fetchPokemonList()
     }
 }
 

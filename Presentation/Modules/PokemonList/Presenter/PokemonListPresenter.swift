@@ -6,10 +6,28 @@
 //  Copyright © 2020 my company. All rights reserved.
 //
 
-protocol PokemonListPresenter {}
+import Domain
+import Foundation
+
+protocol PokemonListPresenter {
+    func fetchPokemonList()
+}
 
 final class PokemonListPresenterImpl: PokemonListPresenter {
 
     weak var view: PokemonListView?
     var wireframe: PokemonListWireframe!
+    var useCase: PokemonListUseCase!
+    
+    func fetchPokemonList() {
+        self.useCase.get { result in
+            switch result {
+            case .success(let model):
+                print(model)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
+
