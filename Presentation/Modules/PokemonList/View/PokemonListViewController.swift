@@ -14,6 +14,15 @@ protocol PokemonListView: AnyObject {}
 final class PokemonListViewController: UIViewController {
 
     var presenter: PokemonListPresenter!
+    
+    @IBOutlet private weak var tableView: UITableView! {
+        willSet {
+            newValue.register(PokemonListTableViewCell.nib, forCellReuseIdentifier: <#T##String#>)
+            newValue.contentInset.top = 24
+            newValue.contentInset.bottom = 16
+        }
+    }
+    
 }
 
 // MARK: - Life cycle
@@ -28,3 +37,5 @@ extension PokemonListViewController {
 // MARK: - PokemonListView
 extension PokemonListViewController: PokemonListView {
 }
+
+// MARK: - TableViewDataSource
