@@ -16,6 +16,9 @@ targets:
     - target: DataStore
     - target: Domain
     - target: Presentation
+    postCompileScripts:
+      - script: "mint run swiftlint swiftlint autocorrect --format\nmint run swiftlint swiftlint"
+        name: SwiftLint
   DataStore:
     type: framework
     platform: iOS

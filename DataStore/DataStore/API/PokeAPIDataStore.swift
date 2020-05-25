@@ -8,14 +8,14 @@
 import Foundation
 
 enum PokeAPIDataStoreProvider {
-    
+
     static func provide() -> PokeAPIDataStore {
         return PokeAPIDataStoreImpl(dataStore: APIDataStoreProvider.provide())
     }
 }
 
 protocol PokeAPIDataStore {
-    
+
     /// PokeAPI用のAPI処理
     /// これを使用することで、APIで取得したDataからPokeAPIのResponseのパースをやってくれる
     /// - Parameters:

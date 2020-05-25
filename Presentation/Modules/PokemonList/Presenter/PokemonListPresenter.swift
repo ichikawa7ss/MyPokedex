@@ -18,7 +18,7 @@ final class PokemonListPresenterImpl: PokemonListPresenter {
     weak var view: PokemonListView?
     var wireframe: PokemonListWireframe!
     var useCase: PokemonListUseCase!
-    
+
     func fetchPokemonList() {
         self.useCase.get { result in
             switch result {
@@ -30,4 +30,3 @@ final class PokemonListPresenterImpl: PokemonListPresenter {
         }
     }
 }
-
