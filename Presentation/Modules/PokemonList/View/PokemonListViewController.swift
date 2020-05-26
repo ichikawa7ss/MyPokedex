@@ -7,22 +7,27 @@
 //
 
 import UIKit
+import Domain
 
-protocol PokemonListView: AnyObject {}
+protocol PokemonListView: AnyObject {
+    func showPokemonList(_ model: PokemonListModel)
+}
 
 // MARK: - Properties
 final class PokemonListViewController: UIViewController {
 
     var presenter: PokemonListPresenter!
-    
+
+    var pokemons = [PokemonListModel.Pokemon]()
+
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
-            newValue.register(PokemonListTableViewCell.nib, forCellReuseIdentifier: <#T##String#>)
+            newValue.register(PokemonListTableViewCell.self)
             newValue.contentInset.top = 24
             newValue.contentInset.bottom = 16
         }
     }
-    
+
 }
 
 // MARK: - Life cycle
@@ -36,6 +41,21 @@ extension PokemonListViewController {
 
 // MARK: - PokemonListView
 extension PokemonListViewController: PokemonListView {
+    func showPokemonList(_ model: PokemonListModel) {
+        self.pokemons = model.pokemons
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - TableViewDataSource
+extension PokemonListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.pokemons.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: PokemonListTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.printData(self.pokemons[indexPath.row])
+        return cell
+    }
+}

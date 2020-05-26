@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import Domain
 
 final class PokemonListTableViewCell: UITableViewCell {
-    
+
+    func printData(_ pokemons: PokemonListModel.Pokemon) {
+        print(pokemons)
+    }
 }
