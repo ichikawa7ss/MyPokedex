@@ -19,6 +19,6 @@ final class PokemonListTableViewCell: UITableViewCell {
     func configure(_ pokemon: PokemonListModel.Pokemon) {
         self.numberLabel.text = "No.\(pokemon.number.description)"
         self.nameLabel.text = pokemon.name
-        self.pokemonImage.loadImage(pokemon.imageUrl)
+        self.pokemonImage.loadImage(pokemon.imageUrl, placeholder: Asset.mosnterball.image)
     }
 }
