@@ -23,7 +23,7 @@ final class PokemonListPresenterImpl: PokemonListPresenter {
         self.useCase.get { result in
             switch result {
             case .success(let model):
-                print(model)
+                self.view?.showPokemonList(model)
             case .failure(let error):
                 print(error)
             }

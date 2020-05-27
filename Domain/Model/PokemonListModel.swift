@@ -10,8 +10,8 @@ import DataStore
 
 public struct PokemonListModel {
 
-    let count: Int
-    let pokemons: [Pokemon]
+    public let count: Int
+    public let pokemons: [Pokemon]
 }
 
 extension PokemonListModel {
@@ -22,13 +22,13 @@ extension PokemonListModel {
     }
 }
 
-extension PokemonListModel {
+public extension PokemonListModel {
 
     struct Pokemon {
 
-        let name: String
-        let number: Int
-        let imageUrl: String
+        public let name: String
+        public let number: Int
+        public let imageUrl: String
     }
 }
 
