@@ -9,6 +9,10 @@ import Foundation
 
 struct PokemonListAPIRequest: PokeAPIRequestable {
 
+    let offset: Int = 0
+
+    let limit: Int = 807
+
     var path: String {
         return "pokemon"
     }
