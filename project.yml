@@ -38,6 +38,7 @@ targets:
     dependencies:
       - target: DataStore
       - target: Domain
+      - carthage: Nuke
   Domain:
     type: framework
     platform: iOS
