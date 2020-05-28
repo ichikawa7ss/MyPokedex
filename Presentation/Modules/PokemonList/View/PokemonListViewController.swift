@@ -19,6 +19,10 @@ final class PokemonListViewController: UIViewController {
     var presenter: PokemonListPresenter!
 
     var pokemons = [PokemonListModel.Pokemon]()
+    
+    override var navigationController: UINavigationController? = {
+        
+    }
 
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
@@ -57,5 +61,12 @@ extension PokemonListViewController: UITableViewDataSource {
         let cell: PokemonListTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(self.pokemons[indexPath.row])
         return cell
+    }
+}
+
+// MARK: - TableViewDelegate
+extension PokemonListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.pokemonListView(didSelectRowAt: indexPath)
     }
 }
