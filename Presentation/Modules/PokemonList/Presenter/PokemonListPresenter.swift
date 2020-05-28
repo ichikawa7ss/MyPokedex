@@ -34,7 +34,7 @@ final class PokemonListPresenterImpl: PokemonListPresenter {
     }
 
     func pokemonListView(didSelectRowAt indexPath: IndexPath) {
-        let pokemonNunber = indexPath.row
+        let pokemonNunber = indexPath.row + 1
         self.wireframe.pushPokemonDetail(number: pokemonNunber)
     }
 }
