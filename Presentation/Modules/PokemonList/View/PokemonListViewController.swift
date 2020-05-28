@@ -19,10 +19,6 @@ final class PokemonListViewController: UIViewController {
     var presenter: PokemonListPresenter!
 
     var pokemons = [PokemonListModel.Pokemon]()
-    
-    override var navigationController: UINavigationController? = {
-        
-    }
 
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
