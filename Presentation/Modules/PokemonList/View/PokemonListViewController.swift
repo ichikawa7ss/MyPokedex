@@ -59,3 +59,10 @@ extension PokemonListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - TableViewDelegate
+extension PokemonListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.pokemonListView(didSelectRowAt: indexPath)
+    }
+}

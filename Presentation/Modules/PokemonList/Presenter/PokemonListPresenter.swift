@@ -10,7 +10,10 @@ import Domain
 import Foundation
 
 protocol PokemonListPresenter {
+
     func fetchPokemonList()
+
+    func pokemonListView(didSelectRowAt indexPath: IndexPath)
 }
 
 final class PokemonListPresenterImpl: PokemonListPresenter {
@@ -28,5 +31,10 @@ final class PokemonListPresenterImpl: PokemonListPresenter {
                 print(error)
             }
         }
+    }
+
+    func pokemonListView(didSelectRowAt indexPath: IndexPath) {
+        let pokemonNunber = indexPath.row + 1
+        self.wireframe.pushPokemonDetail(number: pokemonNunber)
     }
 }
