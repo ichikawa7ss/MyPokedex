@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import Domain
 
 enum PokemonDetailBuilder {
 
     static func build(number: Int) -> UIViewController {
         let view = PokemonDetailViewController.instantiate()
-        let presenter = PokemonDetailPresenterImpl()
+        let presenter = PokemonDetailPresenterImpl(number: number)
         let wireframe = PokemonDetailWireframeImpl()
 
         view.presenter = presenter
 
         presenter.view = view
         presenter.wireframe = wireframe
-        presenter.pokemonNumber = number
+        presenter.useCase = PokemonDetailUseCaseProvider.provide()
 
         wireframe.viewController = view
 
