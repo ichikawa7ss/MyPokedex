@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Domain
 
-protocol PokemonDetailView: AnyObject {}
+protocol PokemonDetailView: AnyObject {
+    func showPokemonDetailModel(_ model: PokemonDetailModel)
+}
 
 // MARK: - Properties
 final class PokemonDetailViewController: UIViewController {
@@ -21,10 +24,14 @@ extension PokemonDetailViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter.printPokemonNumber()
+        self.presenter.fetchPokemonDetail()
     }
 }
 
 // MARK: - PokemonDetailView
 extension PokemonDetailViewController: PokemonDetailView {
+
+    func showPokemonDetailModel(_ model: PokemonDetailModel) {
+        print(model)
+    }
 }
